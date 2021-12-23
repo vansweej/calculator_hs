@@ -12,7 +12,10 @@ import Environments
     setBinding,
     toList,
   )
-import EvalCalc (eval)
+
+import Control.Monad.State
+import Data.Stack
+import EvalCalc (eval, eval2, eval3)
 import Lib
 
 main =
@@ -51,3 +54,10 @@ main =
       ( "Evaluation with x=5, y=7, z=1:  "
           ++ show (eval exp5 env)
       )
+
+    let exp6 = Mul (Add (Val 2) (Val 5)) (Sub (Val 7) (Val 3))
+    let exp7 = Add (Add (Val 3) (Val 1)) (Val 5)
+    let startState = stackNew
+    putStrLn ("eval3 evaluation: " ++ show (execState (eval3 exp6) startState))
+
+
