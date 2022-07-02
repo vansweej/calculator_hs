@@ -16,7 +16,7 @@ instance Show Expr where
   show (Var n) = n
   show (Add l r) = showParExpr "+" [l, r]
   show (Sub l r) = showParExpr "-" [l, r]
-  show (Mul l r) = showParExpr "+" [l, r]
+  show (Mul l r) = showParExpr "*" [l, r]
   show (Div l r) = showParExpr "/" [l, r]
 
 showParExpr :: String -> [Expr] -> String

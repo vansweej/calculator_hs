@@ -27,6 +27,8 @@ library:
   dependencies:
   - mtl
   - Stack
+  - megaparsec
+  - text
 
 executables:
   calculator-exe:
