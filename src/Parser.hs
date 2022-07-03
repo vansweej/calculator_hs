@@ -1,4 +1,4 @@
-module Parser (pNumber, pFactor, pTerm, pExpression) where
+module Parser (pParser) where
 
 import AbstractSyntax (Expr (..))
 import Control.Applicative hiding (many)
@@ -76,3 +76,6 @@ pSubtractExpr :: Parser (Expr -> Expr -> Expr)
 pSubtractExpr = do
   lexeme (void (char '-'))
   return Sub
+
+pParser :: Parser Expr
+pParser = pExpression <* eof
